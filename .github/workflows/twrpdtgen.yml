@@ -1,0 +1,37 @@
+name: Generate TWRP Device Tree
+
+on:
+  workflow_dispatch: # Executa manualmente
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y python3 python3-pip cpio busybox wget
+          pip3 install twrpdtgen
+
+      - name: Download boot.img from Release
+        run: |
+          # Troque pelo link exato do arquivo na sua Release
+          wget -O boot.img https://github.com/ghhslvzx/dtgentwrp/releases/download/v1.0/boot.img
+
+      - name: Unzip boot.img
+        run: unzip boot.zip
+
+        
+      - name: Run TWRPDTGen
+        run: |
+          mkdir output
+          python3 -m twrpdtgen boot.img -o output
+
+      - name: Upload Device Tree
+        uses: actions/upload-artifact@v3
+        with:
+          name: device-tree
+          path: output
