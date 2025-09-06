@@ -19,7 +19,7 @@ jobs:
       - name: Download boot.zip from Release
         run: |
           # Troque o link pelo da sua Release
-          wget -O boot.zip https://github.com/USUARIO/REPO/releases/download/v1.0/boot.zip
+          wget -O boot.zip https://github.com/ghhslvzx/dtgentwrp/releases/download/v1.0/boot.zip
           unzip boot.zip
 
       - name: Run TWRPDTGen
