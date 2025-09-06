@@ -11,11 +11,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install dependencies
-       run: |
-        sudo apt update
-        sudo apt install -y python3 python3-pip cpio busybox wget unzip \
-        abootimg lzop lz4 zstd android-sdk-libsparse-utils
-        pip3 install --upgrade twrpdtgen
+        run: |
+         sudo apt update
+         sudo apt install -y python3 python3-pip cpio busybox wget unzip \
+         abootimg lzop lz4 zstd android-sdk-libsparse-utils
+         pip3 install --upgrade twrpdtgen
           
 
       - name: Download boot.zip from Release
