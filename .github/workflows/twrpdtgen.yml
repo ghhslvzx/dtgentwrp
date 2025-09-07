@@ -35,7 +35,7 @@ jobs:
 
       - name: Clone AIK manual
         run: |
-          git clone https://github.com/SebaUbuntu/AIK-Linux.git AIK
+          git clone https://github.com/SebaUbuntu/AIK-Linux-mirror.git AIK
           chmod +x AIK/*.sh
           ls -lh AIK
 
