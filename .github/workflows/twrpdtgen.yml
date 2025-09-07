@@ -33,9 +33,16 @@ jobs:
           file boot.img
           ls -lh boot.img
 
+      - name: Clone AIK manual
+        run: |
+          git clone https://github.com/SebaUbuntu/AIK-Linux.git AIK
+          chmod +x AIK/*.sh
+          ls -lh AIK
+
       - name: Run TWRPDTGen
         run: |
           mkdir output
+          AIK_PATH=$GITHUB_WORKSPACE/AIK 
           python3 -m twrpdtgen boot.img -o output
 
       - name: Upload Device Tree
