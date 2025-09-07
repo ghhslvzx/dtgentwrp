@@ -16,7 +16,9 @@ jobs:
          sudo apt install -y python3 python3-pip cpio busybox wget unzip \
          abootimg lzop lz4 zstd android-sdk-libsparse-utils
          pip3 install --upgrade twrpdtgen
-          
+
+          - name: Install unpack dependencies
+           run: sudo apt-get update && sudo apt-get install -y lzop lz4 zstd cpio
 
       - name: Download boot.zip from Release
         run: |
